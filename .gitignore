@@ -38,3 +38,21 @@ captures/
 
 # Keystore files
 *.jks
+*.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/libraries/animated_vector_drawable_23_4_0.xml
+.idea/libraries/appcompat_v7_23_4_0.xml
+.idea/libraries/hamcrest_core_1_3.xml
+.idea/libraries/junit_4_12.xml
+.idea/libraries/library_3_3_1.xml
+.idea/gradle.xml
+.idea/libraries/recyclerview_v7_23_4_0.xml
+.idea/libraries/support_annotations_23_4_0.xml
+.idea/libraries/support_v4_23_4_0.xml
+.idea/libraries/support_vector_drawable_23_4_0.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+app/proguard-rules.pro

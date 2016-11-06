@@ -1,0 +1,120 @@
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="56dp"
+    sothree:umanoShadowHeight="4dp"
+    sothree:umanoParallaxOffset="100dp"
+    sothree:umanoDragView="@+id/dragView"
+    sothree:umanoOverlay="true"
+    sothree:umanoScrollableView="@+id/list">
+    <!-- MAIN CONTENT -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="horizontal"
+            android:background="#FF9933">
+
+            <include
+                android:id="@+id/include_acb_home"
+                layout="@layout/actionbar_home"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"></include>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@+id/ll_1"
+            android:orientation="vertical"
+            android:paddingTop="65dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guest_"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"
+                android:alpha="0.87"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="234 points"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:alpha="0.67"/>
+
+        </LinearLayout>
+
+        <com.android.incidentapp.CircularImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_profile_48_white"
+            android:layout_centerInParent="true"
+            app:border_color="#252525"
+            app:border_overlay="false"
+            app:border_width="2dp" />
+
+    </RelativeLayout>
+    <!-- SLIDING LAYOUT -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#404040"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quiz"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:paddingBottom="4dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_quiz_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_quiz"
+                android:text="One new question added."
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_quiz"
+                android:layout_alignBottom="@+id/tv_quiz_update"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_keyboard_arrow_up_white_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
