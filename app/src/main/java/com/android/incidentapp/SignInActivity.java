@@ -6,21 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     Button googleSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_in);
 
         googleSignIn = (Button) findViewById (R.id.b_google_sign_in);
 
         googleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent to_home = new Intent(MainActivity.this, HomeActivity.class);
+                Intent to_home = new Intent(SignInActivity.this, QuestionActivity.class);
                 startActivity(to_home);
             }
         });
