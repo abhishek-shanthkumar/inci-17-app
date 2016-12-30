@@ -13,7 +13,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.android.incidentapp.adapter.LeaderboardAdapter;
 import com.android.incidentapp.adapter.QuizElementsAdapter;
+import com.android.incidentapp.auxiliary.BottomFadeEdgeRV;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
@@ -21,9 +23,11 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
 public class HomeActivity extends ActionBarActivity {
     private static final String TAG = "HomeActivity";
     private SlidingUpPanelLayout mLayout;
+    BottomFadeEdgeRV mLeaderboard;
     RecyclerView quizElements;
-    LinearLayoutManager mLayoutManager;
+    LinearLayoutManager mLayoutManager, mLayoutManagerLeaderboard;
     QuizElementsAdapter mQuizElementsAdapter;
+    LeaderboardAdapter mLeaderboardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class HomeActivity extends ActionBarActivity {
 
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         quizElements = (RecyclerView) findViewById(R.id.rv_quiz);
+        mLeaderboard = (BottomFadeEdgeRV) findViewById(R.id.rv_leaderboard);
 
         mLayout.addPanelSlideListener(new PanelSlideListener() {
             @Override
@@ -56,6 +61,12 @@ public class HomeActivity extends ActionBarActivity {
         quizElements.setLayoutManager(mLayoutManager);
         quizElements.setItemAnimator(new DefaultItemAnimator());
         quizElements.setAdapter(mQuizElementsAdapter);
+
+        mLayoutManagerLeaderboard = new LinearLayoutManager(this);
+        mLeaderboardAdapter = new LeaderboardAdapter(getApplicationContext());
+        mLeaderboard.setLayoutManager(mLayoutManagerLeaderboard);
+        mLeaderboard.setItemAnimator(new DefaultItemAnimator());
+        mLeaderboard.setAdapter(mLeaderboardAdapter);
 
     }
 
