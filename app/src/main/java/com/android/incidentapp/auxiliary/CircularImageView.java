@@ -1,4 +1,4 @@
-package com.android.incidentapp;
+package com.android.incidentapp.auxiliary;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -19,6 +19,8 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.android.incidentapp.R;
 
 public class CircularImageView extends ImageView {
 
