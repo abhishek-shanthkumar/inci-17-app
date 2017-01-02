@@ -14,6 +14,9 @@ import com.android.incidentapp.LeaderboardActivity;
 import com.android.incidentapp.QuestionActivity;
 import com.android.incidentapp.R;
 import com.android.incidentapp.SpinActivity;
+import com.android.incidentapp.auxiliary.CircularImageView;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by RK on 03/11/2016.
@@ -21,12 +24,14 @@ import com.android.incidentapp.SpinActivity;
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder> {
 
     Context context;
+    private FirebaseUser mFirebaseUser;
 
     public static final int PROFILE = 0;
     public static final int HEADER = 1;
 
-    public LeaderboardAdapter(Context context) {
+    public LeaderboardAdapter(Context context, FirebaseUser firebaseUser) {
         this.context = context;
+        this.mFirebaseUser = firebaseUser;
     }
 
     @Override
@@ -49,6 +54,9 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
         if (leaderboardViewHolder.getItemViewType() == PROFILE) {
             ProfileViewHolder mProfileViewHolder = (ProfileViewHolder) leaderboardViewHolder;
+            mProfileViewHolder.name.setText(mFirebaseUser.getDisplayName());
+            String url = mFirebaseUser.getPhotoUrl().toString().replace("/s96-c/","/s512-c/");
+            Picasso.with(context).load(url).into(mProfileViewHolder.profileImage);
         }
         else if (leaderboardViewHolder.getItemViewType() == HEADER) {
             HeaderViewHolder mHeaderViewHolder = (HeaderViewHolder) leaderboardViewHolder;
@@ -91,10 +99,13 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
         CardView cardType;
         TextView elementTitle;
+        TextView name;
+        CircularImageView profileImage;
 
         public ProfileViewHolder(View v) {
             super(v);
-
+            name = (TextView) v.findViewById(R.id.tv_name);
+            profileImage = (CircularImageView) v.findViewById(R.id.iv_profile_image);
         }
     }
 

@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:alpha="0.87"
                     android:gravity="center_horizontal"
-                    android:text="Abhishek Shanthkumar"
+                    android:text="Anonymous"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />

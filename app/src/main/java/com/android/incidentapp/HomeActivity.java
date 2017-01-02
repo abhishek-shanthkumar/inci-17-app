@@ -3,8 +3,10 @@ package com.android.incidentapp;
 /**
  * Created by RK on 05/11/2016.
  */
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,11 +18,13 @@ import android.view.View.OnClickListener;
 import com.android.incidentapp.adapter.LeaderboardAdapter;
 import com.android.incidentapp.adapter.QuizElementsAdapter;
 import com.android.incidentapp.auxiliary.BottomFadeEdgeRV;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
 
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
     private SlidingUpPanelLayout mLayout;
     BottomFadeEdgeRV mLeaderboard;
@@ -29,10 +33,29 @@ public class HomeActivity extends ActionBarActivity {
     QuizElementsAdapter mQuizElementsAdapter;
     LeaderboardAdapter mLeaderboardAdapter;
 
+    // Firebase variables
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        if (mFirebaseUser == null) {
+            // Not signed in, launch the Sign In activity
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+            return;
+        } else {
+            //mUsername = mFirebaseUser.getDisplayName();
+            if (mFirebaseUser.getPhotoUrl() != null) {
+                //mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+            }
+        }
 
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         quizElements = (RecyclerView) findViewById(R.id.rv_quiz);
@@ -63,7 +86,7 @@ public class HomeActivity extends ActionBarActivity {
         quizElements.setAdapter(mQuizElementsAdapter);
 
         mLayoutManagerLeaderboard = new LinearLayoutManager(this);
-        mLeaderboardAdapter = new LeaderboardAdapter(getApplicationContext());
+        mLeaderboardAdapter = new LeaderboardAdapter(getApplicationContext(), mFirebaseUser);
         mLeaderboard.setLayoutManager(mLayoutManagerLeaderboard);
         mLeaderboard.setItemAnimator(new DefaultItemAnimator());
         mLeaderboard.setAdapter(mLeaderboardAdapter);

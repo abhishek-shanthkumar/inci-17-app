@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "162824958781",
+    "firebase_url": "https://inci-17-app.firebaseio.com",
+    "project_id": "inci-17-app",
+    "storage_bucket": "inci-17-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162824958781:android:bbb9016b37249057",
+        "android_client_info": {
+          "package_name": "com.android.incidentapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162824958781-0ald7lc8c1ie8ftq6jdfab65lm98pjjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.incidentapp",
+            "certificate_hash": "EC907FCC3AC87468CDE10CA8D7D0565F6651ADBA"
+          }
+        },
+        {
+          "client_id": "162824958781-m4esecrrht5bdp5u56s90ncud8bno00j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLiIc4Oo3qRsIJ3MIVWrfej0AsxHZgNCA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162824958781-m4esecrrht5bdp5u56s90ncud8bno00j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
